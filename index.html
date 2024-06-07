@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Tabs with ArcGIS Map</title>
+    <!-- Include jQuery and jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Include ArcGIS API -->
+    <link rel="stylesheet" href="https://js.arcgis.com/4.28/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.28/"></script>
+    <script type="module" src="https://js.arcgis.com/calcite-components/1.9.2/calcite.esm.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/1.9.2/calcite.css" />
+    <script src="script.js"></script>
+
+    <style>
+        #viewDiv {
+            height: 720px;
+            width: 100%;
+        }
+        #basemapStyles {
+            width: 250px;
+            padding: 10px;
+        }
+        .container {
+            height: 200px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<div id="tabs">
+    <ul>
+        <li><a href="#mapa">Mapa</a></li>
+        <li><a href="#unos">Unos</a></li>
+    </ul>
+    <div id="mapa">
+        <!-- Place the provided code here -->
+        <div id="viewDiv"></div>
+        <div id="tableContainer" class="container">
+            <div id="tableDiv"></div>
+        </div>
+        <div id="mainDiv"></div>
+        <div id="basemapStyles" class="esri-widget">
+            <calcite-label>Basemap style</calcite-label>
+            <calcite-combobox id="styleCombobox" selection-mode="single" clear-disabled>
+                <calcite-combobox-item value="arcgis/streets" text-label="arcgis/streets"></calcite-combobox-item>
+                <calcite-combobox-item value="arcgis/imagery" text-label="arcgis/imagery"></calcite-combobox-item>
+                <calcite-combobox-item value="arcgis/topographic" text-label="arcgis/topographic" selected></calcite-combobox-item>
+                <calcite-combobox-item value="arcgis/terrain" text-label="arcgis/terrain"></calcite-combobox-item>
+                <calcite-combobox-item value="osm/standard-relief" text-label="osm/standard-relief"></calcite-combobox-item>
+                <calcite-combobox-item value="osm/streets" text-label="osm/streets"></calcite-combobox-item>
+                <calcite-combobox-item value="osm/hybrid" text-label="osm/hybrid"></calcite-combobox-item>
+            </calcite-combobox>
+        </div>
+    </div>
+    <div id="unos">
+        <!-- Content for the "unos" tab goes here -->
+        <h2>Unos Tab</h2>
+        <p>This is the content of the Unos tab.</p>
+    </div>
+</div>
+
+<script>
+    $(function() {
+        $("#tabs").tabs();
+    });
+</script>
+
+
+
+</body>
+</html>
